@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import Home from './pages/Home';
+import { BrowserRouter, Route } from "react-router-dom";
+import { Routes } from './routes';
 function App() {
+  const _renderRoute = () => {
+    return Routes.map((item,index) => <Route key={index} exact path={item.path} component={item.component} />)
+  }
   return (
-    <div className="App">
       <BrowserRouter>
-        <Route exact path='/' component={Home} />
+        {_renderRoute()}
       </BrowserRouter>
-    </div>
   );
 }
 
